@@ -2,14 +2,14 @@ server:
   port: 8090
 
 baseUrl: http://localhost:9595/bank/accounts/getAccountDetailsByNumber/8119008115
-subbaseUrl: http://localhost:8090/update-service/method2
+subbaseUrl: http://localhost:8090/update-service/
 
-#spring:
-#  application:
-#    name: app-2
+spring:
+  application:
+    name: app-4
 
-tracing:
-  url: http://jaeger-production-collector.tracing-system.svc.cluster.local:4318/v1/traces
+#tracing:
+  #url: http://jaeger-production-collector.tracing-system.svc.cluster.local:4318/v1/traces
   #url: http://localhost:4318/v1/traces
 
 management:
@@ -17,7 +17,7 @@ management:
     sampling:
       probability: 1.0
 
-logging:
-  pattern:
-    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+#logging:
+  #pattern:
+    #level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 

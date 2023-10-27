@@ -20,8 +20,8 @@ public class LogsErrorController {
     @Autowired
     private RestTemplate restTemplate;
 
-//   @Value("${spring.application.name}")
-//    private String applicationName;
+   @Value("${spring.application.name}")
+    private String applicationName;
 
     @Value("${baseUrl}")
     private String baseUrl;
@@ -45,9 +45,9 @@ public class LogsErrorController {
     public ResponseEntity method1() {
         System.out.println("inside method1");
         System.out.println("ibaseUrlSub"+baseUrl);
-       // System.out.println("applicationName---"+applicationName);
+        System.out.println("applicationName---"+applicationName);
         logger.info("Incoming request at {} for request /method1 ");
-       // logger.info("Incoming request at {} for request /method1 "+ applicationName);
+        logger.info("Incoming request at {} for request /method1 "+ applicationName);
         String response = restTemplate.getForObject(baseUrl, String.class);
         return ResponseEntity.ok("response from /method1 + " + response);
     }
@@ -55,14 +55,15 @@ public class LogsErrorController {
     @GetMapping("/method2")
     public ResponseEntity method2() {
         System.out.println("method2 ");
-        String response = restTemplate.getForObject(subbaseUrl, String.class);
-        return ResponseEntity.ok("response from /method2 ");
+        String response = restTemplate.getForObject(subbaseUrl+"/method3", String.class);
+        return ResponseEntity.ok("response of method----" + response);
+        //return ResponseEntity.ok("response from /method2 ");
     }
 
     @GetMapping("/method3")
     public ResponseEntity method3() {
         System.out.println("method3 ");
-     //   logger.info("Incoming request at {} at /method3", applicationName);
+        logger.info("Incoming request at {} at /method3", applicationName);
         return ResponseEntity.ok("Hello Bank-Service-v1 successfully completed  ");
     }
 

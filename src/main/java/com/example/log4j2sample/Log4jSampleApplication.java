@@ -4,6 +4,7 @@ import com.uber.jaeger.Configuration;
 import com.uber.jaeger.samplers.ProbabilisticSampler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,12 +18,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 public class Log4jSampleApplication  {
 
+	@Value("${spring.application.name}")
+	private String applicationName;
+/*	@Bean
+	public io.opentracing.Tracer jaegerTracer() {
+		return new Configuration("bank-service-v2", new Configuration.SamplerConfiguration(ProbabilisticSampler.TYPE, 1),
+				new Configuration.ReporterConfiguration())
+				.getTracer();
+
+	}*/
 
 	@Bean
 	public io.opentracing.Tracer jaegerTracer() {
-		return new Configuration("bank-service-v1", new Configuration.SamplerConfiguration(ProbabilisticSampler.TYPE, 1),
+		return new Configuration(applicationName, new Configuration.SamplerConfiguration(ProbabilisticSampler.TYPE, 1),
 				new Configuration.ReporterConfiguration())
 				.getTracer();
+
 	}
 
 
