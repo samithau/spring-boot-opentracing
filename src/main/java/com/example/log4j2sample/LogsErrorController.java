@@ -55,7 +55,7 @@ public class LogsErrorController {
     @GetMapping("/method2")
     public ResponseEntity method2() {
         System.out.println("method2 ");
-        String response = restTemplate.getForObject(baseUrl, String.class);
+        String response = restTemplate.getForObject(subbaseUrl, String.class);
         return ResponseEntity.ok("response from /method2 ");
     }
 
