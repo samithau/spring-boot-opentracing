@@ -1,23 +1,36 @@
+spring:
+  application:
+    name: bank-service-v11
+opentracing:
+  jaeger:
+    service-name: bank-service-v11
+    enable: true
+    udp-sender:
+      host:  jaeger-production-collector.tracing-system.svc.cluster.local
+      #port: 16686
+  sampler:
+    type: const
+    param: 1
 server:
   port: 8090
 
 baseUrl: http://localhost:9595/bank/accounts/getAccountDetailsByNumber/8119008115
 subbaseUrl: http://localhost:8090/update-service/
-
-spring:
-  application:
-    name: app-4
+#
+#spring:
+#  application:
+#    name: app6
 
 #tracing:
-  #url: http://jaeger-production-collector.tracing-system.svc.cluster.local:4318/v1/traces
-  #url: http://localhost:4318/v1/traces
-
-management:
-  tracing:
-    sampling:
-      probability: 1.0
-
+#  #url: http://jaeger-production-collector.tracing-system.svc.cluster.local:4318/v1/traces
+#   url: http://localhost:4318/v1/traces
+#
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0
+#
 #logging:
-  #pattern:
-    #level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+#  pattern:
+#    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
