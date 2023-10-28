@@ -38,7 +38,7 @@ public class Controller {
     @GetMapping("/hello")
     public String hello() {
         logger.info("My Name is khan " + emoji);
-        logger.info("applicationName " + applicationName);
+       logger.info("applicationName " + applicationName);
         return "My Name is khan " + emoji;
     }
 
@@ -47,8 +47,7 @@ public class Controller {
         System.out.println("inside method1");
         System.out.println("ibaseUrlSub"+baseUrl);
         System.out.println("applicationName---"+applicationName);
-        logger.info("Incoming request at {} for request /method1 ");
-        logger.info("Incoming request at {} for request /method1 "+ applicationName);
+        logger.info("Incoming request at {} for request /method1 ");logger.info("Incoming request at {} for request /method1 "+ applicationName);
         String response = restTemplate.getForObject(baseUrl, String.class);
         return ResponseEntity.ok("response from /method1 + " + response);
     }
@@ -64,7 +63,7 @@ public class Controller {
     @GetMapping("/method3")
     public ResponseEntity method3() {
         System.out.println("method3 ");
-        logger.info("Incoming request at {} at /method3", applicationName);
+      //  logger.info("Incoming request at {} at /method3", applicationName);
         return ResponseEntity.ok("Hello Bank-Service-v1 successfully completed  ");
     }
 
