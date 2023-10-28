@@ -1,4 +1,4 @@
-package com.example.log4j2sample;
+package com.example.opentrace;
 
 
 import org.slf4j.Logger;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/update-service")
-public class LogsErrorController {
+@RequestMapping("/service")
+public class Controller {
 
-    private static final Logger logger = LoggerFactory.getLogger(LogsErrorController.class);
+    private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
     @Autowired
     private RestTemplate restTemplate;
@@ -29,16 +29,17 @@ public class LogsErrorController {
     @Value("${subbaseUrl}")
     private String subbaseUrl;
 
-/*
+    String emoji = "😀";
+    /*
     public LogsErrorController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-*/
+    */
     @GetMapping("/hello")
-    public String hello(){
-    //logger.info("My Name is ");
-    //logger.info("applicationName "+ applicationName);
-    return "Mine";
+    public String hello() {
+        logger.info("My Name is khan " + emoji);
+        logger.info("applicationName " + applicationName);
+        return "My Name is khan " + emoji;
     }
 
     @GetMapping("/method1")

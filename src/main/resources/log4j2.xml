@@ -43,7 +43,7 @@
     </Appenders>
 
     <Loggers>
-        <AsyncLogger name="com.example.log4j2sample" level="debug"
+        <AsyncLogger name="com.example.opentrace" level="debug"
                      additivity="false">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender" />

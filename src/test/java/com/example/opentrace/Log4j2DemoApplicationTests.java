@@ -1,4 +1,4 @@
-package com.example.log4j2sample;
+package com.example.opentrace;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

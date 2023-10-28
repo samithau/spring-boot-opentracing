@@ -1,1 +1,1 @@
-# Spring Boot and Log4j Example
+# Spring Boot and Opentracing Example
