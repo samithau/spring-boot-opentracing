@@ -7,7 +7,7 @@ opentracing:
     enable: true
     udp-sender:
       host: localhost
-      port: 16686
+      port: 6831
   sampler:
     type: const
     param: 1
