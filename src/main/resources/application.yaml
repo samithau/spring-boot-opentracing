@@ -5,9 +5,9 @@ opentracing:
   jaeger:
     service-name: bank-service-v11
     enable: true
-    http-sender:
-      url:  http://jaeger-production-collector.tracing-system.svc.cluster.local:4318/api/traces
-      #port: 16686
+    udp-sender:
+      host: localhost
+      port: 16686
   sampler:
     type: const
     param: 1
